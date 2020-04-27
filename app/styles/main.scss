@@ -1,0 +1,13 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+a {
+  cursor: pointer;
+}
+.no-padding{
+    padding-left:0 !important;
+    padding-right:0 !important;
+    padding: 0;
+  }
+  

@@ -1,0 +1,32 @@
+<div class="container">
+        <div class="col-md-12" style="margin-top: 25px">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h3>Patient Requests</h3>
+                <div class="col-md-12 no-padding">
+                    <table class="table">
+                        <thead>
+                            <th>Patient's Name</th>
+                            <th>Problem</th>
+                            <th>Approve</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="tsk in tasks">
+                                <td>{{tsk.name}}</td>
+                                <td>{{tsk.medicalIssue}}</td>
+                                <td>
+                                    <b>
+                                        <a ng-if="getpStatus(tsk) == 0" ng-click="complete(tsk)">Approve</a>
+                                        <span style="color:rgb(100, 136, 33)" ng-if="getpStatus(tsk) == 1">Approved</span>
+                                    </b>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <button ng-click="logout()" class="btn btn-block btn-danger btn-sm">Log Out</button>
+            </div>
+        </div>
+    </div>

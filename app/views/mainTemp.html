@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="col-md-12" style="margin-top: 25px">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <h3>Book Appointment</h3>
+            <div class="col-md-12 no-padding">
+                <table class="table">
+                    <thead>
+                        <th>Doctor</th>
+                        <th>Availability</th>
+                        <th>Book</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="tsk in tasks">
+                            <td>{{tsk.name}}</td>
+                            <td>{{tsk.Availibity}}</td>
+                            <td>
+                                <a ng-if="getStatus(tsk) == 2" ng-click="book(tsk._id)">Book an appointment</a>
+                                <span ng-if="getStatus(tsk) == 1">Booked & Confirmed</span>
+                                <span ng-if="getStatus(tsk) == 0">Booked & waiting for confirmation</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <button ng-click="logout()" class="btn btn-block btn-danger btn-sm">Log Out</button>
+        </div>
+    </div>
+</div>

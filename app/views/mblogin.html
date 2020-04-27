@@ -1,0 +1,137 @@
+<div class="page-container login-container">
+	<div class="page-content">
+		<div class="content-wrapper">
+			<div style="position: absolute;top: 5rem;left: 35%;width: 28%;" ng-if="pForm == false && dForm == false">
+				<div class=" col-md-12 btn-group"
+					style="border-radius: 0;border-color: rgba(0, 0, 0, 0.4);box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;padding: 2rem 4rem; ">
+					<form accept-charset="UTF-8" role="form">
+						<div class="panel panel-body login-form col-md-12">
+							<div class="text-center">
+								<h5 class="content-group">Login to your account <small class="display-block">Your
+										credentials</small></h5>
+							</div>
+							<div class="form-group has-feedback has-feedback-left">
+								<input ng-model="loginModel.email" ng-focus="removeFail()" required type="text"
+									class="form-control" placeholder="Username">
+								<div class="form-control-feedback">
+									<i class="fa fa-user text-muted"></i>
+								</div>
+							</div>
+							<div class="form-group has-feedback has-feedback-left">
+								<input ng-model="loginModel.password" ng-focus="removeFail()" required type="password"
+									class="form-control" placeholder="Password">
+								<div class="form-control-feedback">
+									<i class="fa fa-lock text-muted"></i>
+								</div>
+							</div>
+							<div class="form-group has-feedback has-feedback-left">
+								<button class="btn btn-success btn-block form-control" ng-click="submit()">
+									Login
+								</button>
+							</div>
+							<div class="form-group has-feedback has-feedback-left">
+								<label>Register As :</label>
+								<div class="btn-group">
+									<button class="btn btn-danger" type="button" style="width:100px" ng-click="openRegisterForm('p')">Patient</button>
+									<button class="btn btn-danger" type="button" style="width:100px" ng-click="openRegisterForm('d')">Doctor</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-12" style="margin-top: 40px" ng-if="pForm == true">
+				<div class="col-md-2">
+				</div>
+				<div class="col-md-8">
+					<div class="col-md-12">
+						<h4><a ng-click="openRegisterForm('O')"><i class="fa fa-arrow-left"></i></a>&nbsp;&nbsp;Patient Form</h4>
+					</div>
+					<div class="col-md-12" style="margin-top: 4px">
+						<label>Name :</label>
+						<input class="form-control input" type="text" ng-model="patient.name">
+					</div>
+					<div class="col-md-12" style="margin-top: 4px">
+						<label>Email Id :</label>
+						<input class="form-control input" type="text" ng-model="patient.email">
+					</div>
+					<div class="col-md-12" style="margin-top: 4px">
+						<label>Password :</label>
+						<input class="form-control input" type="text" ng-model="patient.password">
+					</div>
+					<div class="col-md-12" style="margin-top: 4px">
+						<label>Phone number :</label>
+						<input class="form-control input" type="text" ng-model="patient.phone">
+					</div>
+					<div class="col-md-12" style="margin-top: 4px">
+						<label>City :</label>
+						<input class="form-control input" type="text" ng-model="patient.city">
+					</div>
+					<div class="col-md-12" style="margin-top: 4px">
+						<label>Medical problem :</label>
+						<textarea rows="4" class="form-control input" type="text" ng-model="patient.medicalIssue"></textarea>
+					</div>
+					<div class="col-md-12" style="margin-top: 4px">
+						<button class="btn btn-block btn-success" ng-click="register()">Register & login</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12" style="margin-top: 40px" ng-if="dForm == true">
+				<div class="col-md-2">
+				</div>
+				<div class="col-md-8">
+					<div class="col-md-12">
+						<h4><a ng-click="openRegisterForm('O')"><i class="fa fa-arrow-left"></i></a>&nbsp;&nbsp;Doctor Form</h4>
+					</div>
+					<div class="col-md-12" style="margin-top: 4px">
+						<label>Name :</label>
+						<input class="form-control input" type="text" ng-model="doctor.name">
+					</div>
+					<div class="col-md-12" style="margin-top: 4px">
+						<label>Email Id :</label>
+						<input class="form-control input" type="text" ng-model="doctor.email">
+					</div>
+					<div class="col-md-12" style="margin-top: 4px">
+						<label>Password :</label>
+						<input class="form-control input" type="text" ng-model="doctor.password">
+					</div>
+					<div class="col-md-12" style="margin-top: 4px">
+						<label>Phone number :</label>
+						<input class="form-control input" type="text" ng-model="doctor.phone">
+					</div>
+					<div class="col-md-12" style="margin-top: 4px">
+						<label>City :</label>
+						<input class="form-control input" type="text" ng-model="doctor.city">
+					</div>
+					<div class="col-md-12" style="margin-top: 4px">
+						<label>Area of Specialization</label>
+						<textarea rows="4" class="form-control input" type="text" ng-model="doctor.Specialization"></textarea>
+					</div>
+					<div class="col-md-12" style="margin-top: 4px">
+						<div class="col-md-6 no-padding">
+							<label style="margin-top:6px">Availibity :</label>
+						</div>
+						<div class="col-md-6 no-padding">
+							<select class="form-control" ng-options="time for time in timeFrames" ng-model="doctor.Availibity">
+								<option selected disabled>Select</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-12" style="margin-top:4px">
+						<div class="col-md-6 no-padding">
+							<label style="margin-top:6px">Upload certificates for verification</label>
+						</div>
+						<div class="col-md-6 no-padding">
+								<input type="file" ngf-select ng-model="picFile" name="file"    
+             accept="image/*" ngf-max-size="4MB" required
+             ngf-model-invalid="errorFile">
+						</div>
+					</div>
+					<div class="col-md-12" style="margin-top: 4px">
+						<button class="btn btn-block btn-success" ng-click="register(picFile)">Register & login</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
